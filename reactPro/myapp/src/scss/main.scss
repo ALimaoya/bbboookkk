@@ -1,0 +1,128 @@
+@charset "utf-8";
+
+@import "../lib/reset.scss";
+
+html, body, #root, .container{
+  @include rect(100%, 100%);
+  @include root-scroll();
+}
+
+#root{
+  @include flexbox();
+  @include flex-direction(column);
+  .App {
+    @include flex(1);
+    width: 100%;
+    overflow: auto;
+    @include flexbox();
+    @include flex-direction(column);
+    .header{
+      @include rect(100%,0.44rem);
+      border-bottom: 1px solid #eee ;
+      @include lineheight(0.44rem);
+    }
+    #content {
+      @include rect(100%, auto);
+      @include root-scroll(true);
+    }
+    #footer {
+      @include rect(100%, 0.44rem);
+      @include bgcolor(#fff);
+      @include fontsize(0.12rem);
+      @include border(0.01rem 0 0 0, #999, solid);
+      position: fixed;
+      bottom: 0;
+      z-index : 1000 ;
+      ul {
+        @include flexbox();
+        @include rect(100%, 100%);
+        li {
+          @include flex(1);
+          @include flexbox();
+          @include flex-direction();
+          a{
+            @include rect(100%, 100%);
+            @include flexbox();
+            @include textcolor(#000);
+            @include align-items();
+            @include flex-direction(column);
+            span {
+            width: 100%;
+            @include textalign(center);
+            &:nth-child(1), &:nth-child(2) {
+              @include rect(0.28rem, 0.28rem);
+              content : '' ;
+            }
+            &:nth-child(2) {
+              display: none;
+            }
+
+
+          }
+
+            &.active{
+              @include textcolor(rgb(254, 110, 110)) ;
+              span{
+                &:nth-child(1){
+                  display : none ;
+                }
+                &:nth-child(2){
+                  display : block ;
+                }
+              }
+            }
+
+          }
+          &:nth-child(1) span {
+            &:nth-child(1) {
+              background: url('../assets/imgs/home-1.png') no-repeat center;
+              background-size: 100%;
+
+            }
+            &:nth-child(2) {
+              background: url('../assets/imgs/home_selected-1.png') no-repeat center;
+              background-size: 100%;
+
+            }
+          }
+
+
+
+          &:nth-child(2) span {
+            &:nth-child(1) {
+              background: url('../assets/imgs/book@3x.png') no-repeat center;
+              background-size: 100%;
+
+            }
+            &:nth-child(2) {
+              background: url('../assets/imgs/book_selected@3x.png') no-repeat center;
+              background-size: 100%;
+
+            }
+          }
+
+
+
+          &:nth-child(3) {
+            span {
+              &:nth-child(1) {
+                background: url('../assets/imgs/me@3x.png') no-repeat center;
+                background-size: 100%;
+
+              }
+              &:nth-child(2) {
+                background: url('../assets/imgs/me_selected@3x.png') no-repeat center;
+                background-size: 100%;
+
+              }
+            }
+
+          }
+
+        }
+      }
+
+    }
+  }
+
+}

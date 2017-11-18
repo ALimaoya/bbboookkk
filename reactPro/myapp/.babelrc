@@ -1,0 +1,13 @@
+{
+
+  "presets":["es2015", "react"],
+  "ignore":[
+    "jquery.js",
+    "jquery.min.js",
+    "react.js",
+    "React.js",
+    "ReactChildren.js"
+  ],
+  "plugins":[["import", {"libraryName": "antd-mobile", "style": "css"}]]
+
+}
